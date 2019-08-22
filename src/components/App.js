@@ -1,8 +1,14 @@
 import React from 'react';
+import Brand from './Brand';
+import samplePhones from '../sample-phones';
 
 class App extends React.Component {
     render() {
-        return <h1>App</h1>
+        return (
+            <div>
+                    { Object.keys(samplePhones).map(key => <Brand brandname={samplePhones[key].brandname} />) }
+            </div>
+        );
     }
 }
 
