@@ -5,8 +5,8 @@ import samplePhones from '../sample-phones';
 class App extends React.Component {
     render() {
         return (
-            <div>
-                    { Object.keys(samplePhones).map(key => <Brand brandname={samplePhones[key].brandname} />) }
+            <div className="brands">
+                { Object.keys(samplePhones).map(key => <Brand brandname={samplePhones[key].brandname} />) }
             </div>
         );
     }
