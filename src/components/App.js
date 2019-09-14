@@ -11,6 +11,7 @@ class App extends React.Component {
                     .map(key => 
                         <Brand 
                             brand={samplePhones[key]} 
+                            key={key}
                         />) 
                 }
             </div>
