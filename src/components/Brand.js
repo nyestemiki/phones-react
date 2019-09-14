@@ -4,7 +4,11 @@ class Brand extends React.Component {
     render() {
         return (
             <div className="brand brand_hover">
-                <h2>{this.props.brandname}</h2>
+                <img 
+                    src={this.props.brand.cover} 
+                    alt={this.props.brand.covermodel}
+                />
+                <h2>{this.props.brand.brandname}</h2>
             </div>
         );
     }

@@ -6,7 +6,13 @@ class App extends React.Component {
     render() {
         return (
             <div className="brands">
-                { Object.keys(samplePhones).map(key => <Brand brandname={samplePhones[key].brandname} />) }
+                { Object
+                    .keys(samplePhones)
+                    .map(key => 
+                        <Brand 
+                            brand={samplePhones[key]} 
+                        />) 
+                }
             </div>
         );
     }
