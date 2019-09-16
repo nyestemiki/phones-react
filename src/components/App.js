@@ -17,6 +17,7 @@ class App extends React.Component {
                         <Brand 
                             brand={samplePhones[key]} 
                             key={key}
+                            id={key}
                             selectBrand={this.selectBrand}
                         />) 
                 }

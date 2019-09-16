@@ -1,16 +1,20 @@
 import React from 'react';
+import ColorThief from 'colorthief';
 
 class Brand extends React.Component {
+    // Sets background of component based on dominant colors of the cover photo
     setBackground = () => {
-        console.log("Should adapt background with color thief");
-        // let colorThief = new ColorThief();
-        // let image = this.querySelector('img');
-        // let color = colorThief.getPalette(image);
-        // let gradient = `radial-gradient(circle, 
-        //     rgb(${color[1][0]}, ${color[1][1]}, ${color[1][2]}) 10%,
-        //     rgb(${color[0][0]}, ${color[0][1]}, ${color[0][2]})
-        // `;
-        // this.style.background = gradient;
+        const colorThief = new ColorThief();
+        setTimeout(() => {
+            const brand_div = document.querySelector(`#${this.props.id}`);
+            const image = brand_div.querySelector('img');
+            const color = colorThief.getPalette(image);
+            const gradient = `radial-gradient(circle, 
+                rgb(${color[1][0]}, ${color[1][1]}, ${color[1][2]}) 10%,
+                rgb(${color[0][0]}, ${color[0][1]}, ${color[0][2]})`;
+            brand_div.style.background = gradient;
+        }, 200);
+        
     }
 
     // Selects the current brand
@@ -26,7 +30,7 @@ class Brand extends React.Component {
 
     render() {
         return (
-            <div className="brand brand_hover" onClick={this.selectBrand}>
+            <div className="brand brand_hover" onClick={this.selectBrand} id={this.props.id}>
                 <div className="brand__image">
                     <img 
                         src={this.props.brand.cover} 
