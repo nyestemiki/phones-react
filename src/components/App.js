@@ -2,6 +2,15 @@ import React from 'react';
 import Brand from './Brand';
 import samplePhones from '../sample-phones';
 import Navbar from './Navbar';
+import styled from 'styled-components';
+
+const Brands = styled.div`
+    display: flex;
+    width: 100vw;
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+`;
 
 class App extends React.Component {
     state = {
@@ -16,12 +25,22 @@ class App extends React.Component {
         // Selecting brand
         this.setState({ selectedBrand: brand.brandname });
 
+        setTimeout(() => {
+            allBrandsArray
+            .filter(div => div.id === brand.brandname)
+            .forEach(div => {
+                div.classList.add("selected_brand");
+            });
+        }, 100);
+
         // Removing the hover effect from all brand divs
         allBrandsArray.forEach(div => {
-            div.classList.remove("brand_hover");
             div.classList.add("fade-out-brand-title");
+            div.classList.remove("brand_hover");
         });
 
+        
+            
         // Fading out the unselected brand divs
         allBrandsArray
             .filter(div => div.id !== brand.brandname)
@@ -29,6 +48,14 @@ class App extends React.Component {
                 div.classList.add("fade-out-brand");
                 div.classList.add("fade-out-brand-img");
             });
+
+        setTimeout(() => {
+            allBrandsArray
+                .filter(div => div.id !== brand.brandname)
+                .forEach(div => {
+                    div.classList.add("hide_div");
+                });
+        }, 700);
     }
 
     // Redirects to the main menu
@@ -42,17 +69,25 @@ class App extends React.Component {
         // Fading in the hidden brand divs
         allBrandsArray
             .forEach(div => {
-                div.classList.remove("fade-out-brand");
+                div.classList.remove("hide_div");
+                div.classList.remove("brand_selected");
             });
+
+        setTimeout(() => {
+            allBrandsArray
+                .forEach(div => {
+                    div.classList.remove("fade-out-brand");
+                });
+        }, 100);
 
         // Displaying the cover images and titles
         setTimeout(() => {
             allBrandsArray
                 .forEach(div => {
-                    div.classList.remove("fade-out-brand-img");
                     div.classList.remove("fade-out-brand-title");
+                    div.classList.remove("fade-out-brand-img");
                 });
-        }, 500);
+        }, 600);
 
         // Reapplying the hover effect
         setTimeout(() => {
@@ -67,7 +102,7 @@ class App extends React.Component {
         return (
             <>
                 <Navbar mainMenu={this.mainMenu}/>
-                <div className="brands"> {   
+                <Brands> {   
                     Object.keys(samplePhones)
                         .map(key => 
                             <Brand 
@@ -78,7 +113,7 @@ class App extends React.Component {
                                 isSelected={this.state.selectedBrand === key}
                             />
                         ) 
-                } </div>
+                } </Brands>
             </>
         );
     }

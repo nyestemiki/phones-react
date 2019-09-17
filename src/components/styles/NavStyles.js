@@ -8,11 +8,21 @@ const Nav = styled.div`
     height: 5vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    
+
+    @media (max-width: 600px) {
+        & {
+            height: 10vh;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            justify-items: center;
+        }
+    }
 `;
 
 const Logo = styled.div`
     content: url("/imgs/logo.png");
-    width: 1.5vw;
+    width: 2vw;
     height: 3vh;
     margin: 10px 20px;
     filter: contrast(500%) grayscale(100%) invert(75%);
@@ -42,7 +52,7 @@ const Tile = styled.div`
         content: '';
         position: absolute;
         left: 10%;
-        bottom: 15px;
+        bottom: 10px;
     }
     
     &:hover, &:focus {

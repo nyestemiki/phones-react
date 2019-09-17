@@ -1,8 +1,11 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     border: 0;
-    overflow: hidden;
     font-family: sans-serif;
     font-weight: 100;
 }
@@ -11,12 +14,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 200;
 } 
 
-.brands {
-    display: flex;
-}
-
 .brand {
     height: 100vh;
+    width: 100vw;
     flex: 1;
     transition: all .75s;
     transition-timing-function: cubic-bezier(0.68,-0.55, 0.49, 1);
@@ -26,16 +26,6 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-rows: 10fr 1fr;
     letter-spacing: 1px;
-}
-
-.brand_hover:hover {
-    flex: 1.25;
-    color: white;
-    letter-spacing: 3px;
-}
-
-.brand_hover:hover img {
-    filter: drop-shadow(0 0 15px white);
 }
 
 .brand__title {
@@ -49,6 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand__image img {
+    margin-top: 30px;
     max-width: 70%;
     max-height: 70%;
 }
@@ -59,10 +50,36 @@ h1, h2, h3, h4, h5, h6 {
     flex: 0;
 }
 
-.fade-out-brand-img {
+.fade-out-brand-img img {
     width: 0;
 }
 
 .fade-out-brand-title .brand__title {
     display: none;
+}
+
+.hide_div {
+    display: none;
+}
+
+@media only screen and (min-width: 800px) {
+    .brand_hover:hover {
+        flex: 1.25;
+        color: white;
+        letter-spacing: 3px;
+    }
+    
+    .brand_hover:hover img {
+        filter: drop-shadow(0 0 15px white);
+    }
+}
+
+@media (max-width: 600px) {
+    .brand {
+        grid-template-rows: 5fr 1fr;
+    }
+    
+    .selected_brand img {
+        filter: drop-shadow(0 0 15px white);
+    }
 }
