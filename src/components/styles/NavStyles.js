@@ -11,15 +11,15 @@ const Nav = styled.div`
 `;
 
 const Logo = styled.div`
-    img {
-        width: 2vw;
-        height: 3vh;
-        margin: 10px;
-        padding-left: 12.5px;
-    }
+    content: url("/imgs/logo.png");
+    width: 1.5vw;
+    height: 3vh;
+    margin: 10px 20px;
+    filter: contrast(500%) grayscale(100%) invert(75%);
 
-    img:hover, image:focus {
+    &:hover, &:focus {
         filter: drop-shadow(0 0 4px white);
+        background: rgba(255, 255, 255, 0.5);
     }
 `;
 
@@ -51,6 +51,16 @@ const Tile = styled.div`
         &:after {
             width: 80%;
         }
+    }
+
+    /* Special link */
+    &:hover > a {
+        color: grey;
+    }
+
+    a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.75);
     }
 `;
 

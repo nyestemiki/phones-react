@@ -49,5 +49,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand__image img {
-    width: 70%;
+    max-width: 70%;
+    max-height: 70%;
 }

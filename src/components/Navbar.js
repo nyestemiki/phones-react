@@ -5,11 +5,11 @@ export default class Navbar extends Component {
     render() {
         return (
             <Nav>
-                <Logo>
-                    <img src="/imgs/logo.png"/>
-                </Logo>
+                <Logo onClick={this.props.mainMenu}/>
                 <Tiles>
-                    <Tile>About me</Tile>
+                    <Tile>
+                        <a href="http://www.github.com/nyestemiki">About me</a>
+                    </Tile>
                     <Tile>New deals</Tile>
                     <Tile>Cart</Tile>
                     <Tile>Manager</Tile>
