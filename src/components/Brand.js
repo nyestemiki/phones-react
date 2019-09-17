@@ -23,21 +23,45 @@ class Brand extends React.Component {
         this.props.selectBrand(this.props.brand);
     }
 
-    render() {
-        return (
-            <div className="brand brand_hover" onClick={this.selectBrand} id={this.props.id}>
-                <div className="brand__image">
-                    <img 
-                        src={this.props.brand.cover} 
-                        alt={this.props.brand.covermodel}
-                        onLoad={this.coverImageLoaded}
-                    />
-                </div>
-                <div className="brand__title">
-                    <h2>{this.props.brand.brandname}</h2>
-                </div>
+    // Not selected brand layout (restricted render)
+    notSelectedRender = () => (
+        <div className="brand brand_hover" onClick={this.selectBrand} id={this.props.id}>
+            <div className="brand__image">
+                <img 
+                    src={this.props.brand.cover} 
+                    alt={this.props.brand.covermodel}
+                    onLoad={this.coverImageLoaded}
+                />
             </div>
-        );
+            <div className="brand__title">
+                <h2>{this.props.brand.brandname}</h2>
+            </div>
+        </div>
+    )
+
+    // Selected brand layout (full display)
+    selectedRender = () => (
+        <div className="brand" id={this.props.id}>
+            <div className="brand__image">
+                <img 
+                    src={this.props.brand.cover} 
+                    alt={this.props.brand.covermodel}
+                    onLoad={this.coverImageLoaded}
+                />
+            </div>
+            <div className="brand__title">
+                <h2>{this.props.brand.brandname}</h2>
+            </div>
+        </div>
+    )
+
+    // Renders semi or full render based on whether the brand is selected
+    render() {
+        if (this.props.isSelected) {
+            return this.selectedRender();
+        } else {
+            return this.notSelectedRender();
+        }
     }
 }
 

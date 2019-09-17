@@ -63,6 +63,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 0;
 }
 
-.fade-out-brand-title h2 {
+.fade-out-brand-title .brand__title {
     display: none;
 }

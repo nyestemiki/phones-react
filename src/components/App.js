@@ -4,14 +4,22 @@ import samplePhones from '../sample-phones';
 import Navbar from './Navbar';
 
 class App extends React.Component {
+    state = {
+        selectedBrand: ''
+    }
+
     // Selects the chosen brand
     selectBrand = brand => {
         const allBrands = document.querySelectorAll('.brand'); // Nodelist
         const allBrandsArray = Array.from(allBrands);
         
+        // Selecting brand
+        this.setState({ selectedBrand: brand.brandname });
+
         // Removing the hover effect from all brand divs
         allBrandsArray.forEach(div => {
             div.classList.remove("brand_hover");
+            div.classList.add("fade-out-brand-title");
         });
 
         // Fading out the unselected brand divs
@@ -20,7 +28,6 @@ class App extends React.Component {
             .forEach(div => {
                 div.classList.add("fade-out-brand");
                 div.classList.add("fade-out-brand-img");
-                div.classList.add("fade-out-brand-title");
             });
     }
 
@@ -29,6 +36,9 @@ class App extends React.Component {
         const allBrands = document.querySelectorAll('.brand'); // Nodelist
         const allBrandsArray = Array.from(allBrands);
     
+        // No brand selected
+        this.setState({ selectedBrand: '' });
+
         // Fading in the hidden brand divs
         allBrandsArray
             .forEach(div => {
@@ -65,6 +75,7 @@ class App extends React.Component {
                                 key={key}
                                 id={key}
                                 selectBrand={this.selectBrand}
+                                isSelected={this.state.selectedBrand === key}
                             />
                         ) 
                 } </div>
