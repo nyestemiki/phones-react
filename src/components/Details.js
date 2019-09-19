@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
+import Spec from './Spec';
+import Buy from './Buy';
+import NoInfo from './NoInfo';
 
 const detailsContainerAnimation = keyframes`
     from {
@@ -13,7 +16,7 @@ const DetailsContainer = styled.div`
     flex: 3;
 
     display: grid;
-    grid-template-areas: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin-right: 15px;
     margin-left: -15px;
     font-size: 1.2vw;
@@ -27,19 +30,24 @@ const DetailsContainer = styled.div`
 class Details extends Component {
     render() {
         if(this.props.status) {
-            return(
+            return (
                 <DetailsContainer>
-                    DetailsContainer
-                    DetailsContainer
-                    DetailsContainer
-                    DetailsContainer
-                    DetailsContainer
-                    DetailsContainer
-                    DetailsContainer
-                    DetailsContainer
-                    DetailsContainer
-                    DetailsContainer
-                    DetailsContainer
+                    {   
+                        (
+                            this.props.for.specs && 
+                            Object
+                                .keys(this.props.for.specs)
+                                .map(spec => (
+                                    <Spec 
+                                        spec={spec} 
+                                        value={this.props.for.specs[spec]}
+                                        key={Date.now() + Math.random(Date.now())}
+                                    />
+                                )) 
+                        )  ||
+                        <NoInfo />
+                    } 
+                    { this.props.for.specs && <Buy /> }
                 </DetailsContainer>
             );
         } else {

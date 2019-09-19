@@ -3,6 +3,7 @@ import ColorThief from 'colorthief';
 import { Info, DisplayedModel } from './styles/BrandStyles';
 import Details from './Details';
 import ModelList from './ModelList';
+import Button from './styles/ButtonStyle';
 
 class Brand extends React.Component {
     state = {
@@ -39,8 +40,9 @@ class Brand extends React.Component {
     // LIFECYCLE METHODS
 
     componentDidMount() {
+        const currentModel = this.props.brand.modelList[this.props.brand.covermodel];
         this.setState({
-            displayedModel: this.props.brand
+            displayedModel: currentModel
         });
     }
 
@@ -51,13 +53,13 @@ class Brand extends React.Component {
         <div className="brand brand_hover" onClick={this.selectBrand} id={this.props.id}>
             <div className="brand__image">
                 <img 
-                    src={this.state.displayedModel.cover} 
-                    alt={this.state.displayedModel.covermodel}
+                    src={this.state.displayedModel.img} 
+                    // alt={this.state.displayedModel}
                     onLoad={this.coverImageLoaded}
                 />
             </div>
             <div className="brand__title">
-                <h2>{this.state.displayedModel.brandname}</h2>
+                <h2>{this.props.id}</h2>
             </div>
         </div>
     )
@@ -67,12 +69,12 @@ class Brand extends React.Component {
         <div className="brand selected-brand-layout" id={this.props.id}>
             <Info>
                 <div className="model-name">{this.state.displayedModel.covermodel}</div>
-                <div className="button" onClick={this.props.toggleInfo}>Learn more</div>
+                <Button onClick={this.props.toggleInfo}>Learn more</Button>
             </Info>
             <DisplayedModel className="brand__image">
                 <img 
-                    src={this.state.displayedModel.cover} 
-                    alt={this.state.displayedModel.covermodel}
+                    src={this.state.displayedModel.img} 
+                    // alt={this.state.displayedModel.covermodel}
                 />
             </DisplayedModel>
             <ModelList 

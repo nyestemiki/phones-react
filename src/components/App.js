@@ -73,7 +73,11 @@ class App extends React.Component {
         const allBrandsArray = Array.from(allBrands);
     
         // No brand selected
-        this.setState({ selectedBrand: '' });
+        this.setState({ 
+            selectedBrand: '',
+            showModels: true,
+            showDetails: false
+        });
 
         // Fading in the hidden brand divs
         allBrandsArray
