@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const DetailsContainer = styled.div``;
+const DetailsContainer = styled.div`
+    flex: 3;
+`;
 
 class Details extends Component {
     render() {

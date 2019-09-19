@@ -22,9 +22,8 @@ const Nav = styled.div`
 
 const Logo = styled.div`
     content: url("/imgs/logo.png");
-    width: 2vw;
-    height: 3vh;
-    margin: 10px 20px;
+    height: 4vh;
+    margin: 10px 30px;
     filter: contrast(500%) grayscale(100%) invert(75%);
 
     &:hover, &:focus {

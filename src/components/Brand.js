@@ -3,7 +3,6 @@ import ColorThief from 'colorthief';
 import { Info, DisplayedModel } from './styles/BrandStyles';
 import Details from './Details';
 import ModelList from './ModelList';
-import Model from './Model';
 
 class Brand extends React.Component {
     state = {
@@ -31,6 +30,10 @@ class Brand extends React.Component {
     // Selects the current brand
     selectBrand = () => {
         this.props.selectBrand(this.props.brand);
+    }
+
+    nextModel() {
+        console.log("next model");
     }
 
     // LIFECYCLE METHODS
@@ -63,20 +66,20 @@ class Brand extends React.Component {
     selectedRender = () => (
         <div className="brand selected-brand-layout" id={this.props.id}>
             <Info>
-                <div className="model-name">This is the model's name</div>
-                <div className="button" onClick={this.props.toggleInfo}>More information</div>
+                <div className="model-name">{this.state.displayedModel.covermodel}</div>
+                <div className="button" onClick={this.props.toggleInfo}>Learn more</div>
             </Info>
             <DisplayedModel className="brand__image">
                 <img 
                     src={this.state.displayedModel.cover} 
                     alt={this.state.displayedModel.covermodel}
-                    // onLoad={this.coverImageLoaded}
                 />
             </DisplayedModel>
             <ModelList 
                 className="model-list"
                 status={this.props.showModels} 
                 brand={this.props.brand}
+                onClick={this.nextModel}
             />
             <Details 
                 for={this.state.displayedModel}
