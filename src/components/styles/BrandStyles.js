@@ -1,6 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const infoAnimation = keyframes`
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0);
+    }
+`;
 
 const Info = styled.div`
+    animation: ${infoAnimation} .6s;
+
     flex: 1;
     margin: 50px;
     padding: 25px;
@@ -19,7 +29,7 @@ const Info = styled.div`
 
     .button {
         background: none;
-        border-radius: 3px;
+        border-radius: 10px;
         font-size: 1.25vw;
         cursor: pointer;
         backdrop-filter: blur(50px);
@@ -40,7 +50,16 @@ const Info = styled.div`
     }
 `;
 
+const displayedModelAnimation = keyframes`
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+`;
+
 const DisplayedModel = styled.div`
+    animation: ${displayedModelAnimation} 1s;
     flex: 2;
     transition: 
     img {
@@ -49,7 +68,16 @@ const DisplayedModel = styled.div`
     margin: 30px;
 `;
 
+const modelListAnimation = keyframes`
+    from {
+        transform: translateX(100%);
+    } to {
+        transform: translateX(0);
+    }
+`;
+
 const ModelListStyle = styled.div`
+    animation: ${modelListAnimation} .6s;
     overflow: hidden;
     flex: 3;
 

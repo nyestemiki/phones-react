@@ -1,5 +1,5 @@
 ## To-do
-- add transitions
+[.] add transitions
     - select brand
         - info: come from left
         - displayed model: fade in
