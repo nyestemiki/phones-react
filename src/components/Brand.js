@@ -54,7 +54,7 @@ class Brand extends React.Component {
             <div className="brand__image">
                 <img 
                     src={this.state.displayedModel.img} 
-                    // alt={this.state.displayedModel}
+                    alt={this.state.displayedModel.brand}
                     onLoad={this.coverImageLoaded}
                 />
             </div>
@@ -68,13 +68,13 @@ class Brand extends React.Component {
     selectedRender = () => (
         <div className="brand selected-brand-layout" id={this.props.id}>
             <Info>
-                <div className="model-name">{this.state.displayedModel.covermodel}</div>
+                <div className="model-name">{this.state.displayedModel.model}</div>
                 <Button onClick={this.props.toggleInfo}>Learn more</Button>
             </Info>
             <DisplayedModel className="brand__image">
                 <img 
                     src={this.state.displayedModel.img} 
-                    // alt={this.state.displayedModel.covermodel}
+                    alt={this.state.displayedModel.brand}
                 />
             </DisplayedModel>
             <ModelList 
