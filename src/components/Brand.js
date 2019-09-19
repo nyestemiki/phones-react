@@ -33,8 +33,17 @@ class Brand extends React.Component {
         this.props.selectBrand(this.props.brand);
     }
 
-    nextModel() {
-        console.log("next model");
+    nextModel = model => {
+        if (model !== "undefined") {
+            this.setState({
+                displayedModel: model.props
+            });
+        } else {
+            this.setState({
+                // Set covermodel if no model-argument given
+                displayedModel: this.props.brand.covermodel
+            });
+        }
     }
 
     // LIFECYCLE METHODS
