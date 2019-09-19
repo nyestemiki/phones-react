@@ -46,6 +46,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* SELECTING BRAND */
 
+.selected-brand-layout {
+    display: flex;
+    align-items: center;
+}
+
 .fade-out-brand {
     flex: 0;
 }
@@ -82,4 +87,10 @@ h1, h2, h3, h4, h5, h6 {
     .selected_brand img {
         filter: drop-shadow(0 0 15px white);
     }
+}
+
+.model-list {
+    flex: 3;
+    display: flex;
+    overflow: hidden;
 }

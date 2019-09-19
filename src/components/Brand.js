@@ -1,7 +1,17 @@
 import React from 'react';
 import ColorThief from 'colorthief';
+import { Info, DisplayedModel } from './styles/BrandStyles';
+import Details from './Details';
+import ModelList from './ModelList';
+import Model from './Model';
 
 class Brand extends React.Component {
+    state = {
+        displayedModel: ''
+    }
+
+    // CUSTOM METHODS
+
     coverImageLoaded = () => {
         this.setBackground();
     }
@@ -23,35 +33,55 @@ class Brand extends React.Component {
         this.props.selectBrand(this.props.brand);
     }
 
+    // LIFECYCLE METHODS
+
+    componentDidMount() {
+        this.setState({
+            displayedModel: this.props.brand
+        });
+    }
+
+    // RENDER METHODS
+
     // Not selected brand layout (restricted render)
     notSelectedRender = () => (
         <div className="brand brand_hover" onClick={this.selectBrand} id={this.props.id}>
             <div className="brand__image">
                 <img 
-                    src={this.props.brand.cover} 
-                    alt={this.props.brand.covermodel}
+                    src={this.state.displayedModel.cover} 
+                    alt={this.state.displayedModel.covermodel}
                     onLoad={this.coverImageLoaded}
                 />
             </div>
             <div className="brand__title">
-                <h2>{this.props.brand.brandname}</h2>
+                <h2>{this.state.displayedModel.brandname}</h2>
             </div>
         </div>
     )
 
     // Selected brand layout (full display)
     selectedRender = () => (
-        <div className="brand" id={this.props.id}>
-            <div className="brand__image">
+        <div className="brand selected-brand-layout" id={this.props.id}>
+            <Info>
+                <div className="model-name">This is the model's name</div>
+                <div className="button" onClick={this.props.toggleInfo}>More information</div>
+            </Info>
+            <DisplayedModel className="brand__image">
                 <img 
-                    src={this.props.brand.cover} 
-                    alt={this.props.brand.covermodel}
-                    onLoad={this.coverImageLoaded}
+                    src={this.state.displayedModel.cover} 
+                    alt={this.state.displayedModel.covermodel}
+                    // onLoad={this.coverImageLoaded}
                 />
-            </div>
-            <div className="brand__title">
-                <h2>{this.props.brand.brandname}</h2>
-            </div>
+            </DisplayedModel>
+            <ModelList 
+                className="model-list"
+                status={this.props.showModels} 
+                brand={this.props.brand}
+            />
+            <Details 
+                for={this.state.displayedModel}
+                status={this.props.showDetails}    
+            />
         </div>
     )
 

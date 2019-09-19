@@ -14,16 +14,22 @@ const Brands = styled.div`
 
 class App extends React.Component {
     state = {
-        selectedBrand: ''
+        selectedBrand: '',
+        showModels: true,
+        showDetails: false
+    }
+
+    toggleInfo = () => {
+        this.setState({
+            showModels: !this.state.showModels,
+            showDetails: !this.state.showDetails
+        });
     }
 
     // Selects the chosen brand
     selectBrand = brand => {
         const allBrands = document.querySelectorAll('.brand'); // Nodelist
         const allBrandsArray = Array.from(allBrands);
-        
-        // Selecting brand
-        this.setState({ selectedBrand: brand.brandname });
 
         setTimeout(() => {
             allBrandsArray
@@ -38,8 +44,6 @@ class App extends React.Component {
             div.classList.add("fade-out-brand-title");
             div.classList.remove("brand_hover");
         });
-
-        
             
         // Fading out the unselected brand divs
         allBrandsArray
@@ -56,6 +60,11 @@ class App extends React.Component {
                     div.classList.add("hide_div");
                 });
         }, 700);
+
+        setTimeout(()=> {
+            // Selecting brand
+            this.setState({ selectedBrand: brand.brandname });
+        }, 750);
     }
 
     // Redirects to the main menu
@@ -111,6 +120,9 @@ class App extends React.Component {
                                 id={key}
                                 selectBrand={this.selectBrand}
                                 isSelected={this.state.selectedBrand === key}
+                                showModels={this.state.showModels}
+                                showDetails={this.state.showDetails}
+                                toggleInfo={this.toggleInfo}
                             />
                         ) 
                 } </Brands>
