@@ -5,6 +5,7 @@ import Details from './Details';
 import ModelList from './ModelList';
 import Button from './styles/ButtonStyle';
 import Reanimate from '../helpers/Reanimate';
+import Model from './Model';
 
 class Brand extends React.Component {
     state = {
@@ -95,10 +96,11 @@ class Brand extends React.Component {
     notSelectedRender = () => (
         <div className="brand brand_hover" onClick={this.selectBrand} id={this.props.id}>
             <div className="brand__image">
-                <img 
-                    src={this.state.displayedModel.img} 
-                    alt={this.state.displayedModel.brand}
-                    onLoad={this.coverImageLoaded}
+                <Model 
+                    img={this.state.displayedModel.img} 
+                    id={this.state.displayedModel.brand}
+                    setsBackground={true}
+                    loaded={this.coverImageLoaded}
                 />
             </div>
             <div className="brand__title">
@@ -115,9 +117,9 @@ class Brand extends React.Component {
                 <Button onClick={this.props.toggleInfo}>Learn more</Button>
             </Info>
             <DisplayedModel className="brand__image model__displayed">
-                <img 
-                    src={this.state.displayedModel.img} 
-                    alt={this.state.displayedModel.brand}
+                <Model 
+                    img={this.state.displayedModel.img} 
+                    id={this.state.displayedModel.brand}
                 />
             </DisplayedModel>
             <ModelList 

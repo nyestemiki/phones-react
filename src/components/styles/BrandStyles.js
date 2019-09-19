@@ -39,7 +39,7 @@ const displayedModelAnimation = keyframes`
 
 const DisplayedModel = styled.div`
     animation: ${displayedModelAnimation} 1s;
-    flex: 2;
+    flex: 3;
     transition: 
     img {
         max-height: 75vh;
@@ -81,13 +81,21 @@ const ModelListStyle = styled.div`
 
     display: flex;
     align-items: center;
+
+    & > * {
+        padding: 15px;
+    }
 `;
 
 const ModelStyle = styled.div`
+    display: flex;
+    flex: 3 1 auto;
+    align-items: center;
+    justify-content: center;
+    
     img {
-        height: 50vh;
+        max-height: ${props => props.small ? '50' : '75'}vh;
     }
-    padding: 15px;
 `;
 
 export { Info, DisplayedModel, ModelListStyle, ModelStyle };

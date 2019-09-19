@@ -23,6 +23,7 @@ export default class ModelList extends Component {
                             img={this.props.brand.modelList[model].img} 
                             key={model}
                             id={model}
+                            small={true}
                             {...this.props.brand.modelList[model]}
                         />
                     );
