@@ -5,7 +5,8 @@ const brands = {
         modelList: {
             Galaxy_S8: {
                 brand: "Samsung",
-                model: "Galaxy S8",
+                model: "Galaxy_S8",
+                modelText: "Galaxy S8",
                 img: "/imgs/Samsung/s8.png",
                 specs: {
                     body: "148.9 x 68.1 x 8mm, 155g",
@@ -21,7 +22,8 @@ const brands = {
             },
             Galaxy_S10Plus: {
                 brand: "Samsung",
-                model: "Galaxy S10+",
+                model: "Galaxy_S10Plus",
+                modelText: "Galaxy S10+",
                 img: "/imgs/Samsung/s10+.png",
                 specs: {
                     body: "157.6 x 74.1 x 7.8mm, 175g",
@@ -37,27 +39,32 @@ const brands = {
             },
             Galaxy_A40: {
                 brand: "Samsung",
-                model: "Galaxy A40",
+                model: "Galaxy_A40",
+                modelText: "Galaxy A40",
                 img: "/imgs/Samsung/a40.png"
             },
             Galaxy_A70: {
                 brand: "Samsung",
-                model: "Galaxy A70",
+                model: "Galaxy_A70",
+                modelText: "Galaxy A70",
                 img: "/imgs/Samsung/a70.png"
             },
             Galaxy_M20: {
                 brand: "Samsung",
-                model: "Galaxy M20",
+                model: "Galaxy_M20",
+                modelText: "Galaxy M20",
                 img: "/imgs/Samsung/m20.png"
             },
             Galaxy_S9: {
                 brand: "Samsung",
-                model: "Galaxy S9",
+                model: "Galaxy_S9",
+                modelText: "Galaxy S9",
                 img: "/imgs/Samsung/s9.png"
             },
             Galaxy_S10e: {
                 brand: "Samsung",
-                model: "Galaxy S10e",
+                model: "Galaxy_S10e",
+                modelText: "Galaxy S10e",
                 img: "/imgs/Samsung/s10e.png"
             }
         }
@@ -68,22 +75,26 @@ const brands = {
         modelList: {
             iPhone_X: {
                 brand: "Apple",
-                model: "iPhone X",
+                model: "iPhone_X",
+                modelText: "iPhone X",
                 img: "/imgs/Apple/x.png"
             },
             iPhone_Xs_Max: {
                 brand: "Apple",
-                model: "iPhone XS Max",
+                model: "iPhone_Xs_Max",
+                modelText: "iPhone XS Max",
                 img: "/imgs/Apple/xsmax.png"
             },
             iPhone_7: {
                 brand: "Apple",
-                model: "iPhone 7",
+                model: "iPhone_7",
+                modelText: "iPhone 7",
                 img: "/imgs/Apple/7.png"
             },
             iPhone_8: {
                 brand: "Apple",
-                model: "iPhone 8",
+                model: "iPhone_8",
+                modelText: "iPhone 8",
                 img: "/imgs/Apple/8.png",
                 specs: {
                     body: "138.4 x 76.3 x 7.3mm, 148g",
@@ -99,12 +110,14 @@ const brands = {
             },
             iPhone_Xr: {
                 brand: "Apple",
-                model: "iPhone Xr",
+                model: "iPhone_Xr",
+                modelText: "iPhone Xr",
                 img: "/imgs/Apple/xr.png"
             },
             iPhone_Xs: {
                 brand: "Apple",
-                model: "iPhone Xs",
+                model: "iPhone_Xs",
+                modelText: "iPhone Xs",
                 img: "/imgs/Apple/xs.png"
             }
         }
@@ -115,7 +128,8 @@ const brands = {
         modelList: {
             OnePlus_7Pro: {
                 brand: "OnePlus",
-                model: "One+ 7 Pro",
+                model: "OnePlus_7Pro",
+                modelText: "One+ 7 Pro",
                 img: "/imgs/OnePlus/7pro.png",
                 specs: {
                     body: "162.6 x 75.9 x 8.8mm, 206g",
@@ -131,27 +145,32 @@ const brands = {
             },
             OnePlus_6T: {
                 brand: "OnePlus",
-                model: "One+ 6T",
+                model: "OnePlus_6T",
+                modelText: "One+ 6T",
                 img: "/imgs/OnePlus/6t.png"
             },
             OnePlus_5: {
                 brand: "OnePlus",
-                model: "One+ 5",
+                model: "OnePlus_5",
+                modelText: "One+ 5",
                 img: "/imgs/OnePlus/5.png"
             },
             OnePlus_5T: {
                 brand: "OnePlus",
-                model: "One+ 5T",
+                model: "OnePlus_5T",
+                modelText: "One+ 5T",
                 img: "/imgs/OnePlus/5t.png"
             },
             OnePlus_6T_Maclaren: {
                 brand: "OnePlus",
-                model: "One+ 6T MacLaren",
+                model: "OnePlus_6T_Maclaren",
+                modelText: "One+ 6T MacLaren",
                 img: "/imgs/OnePlus/6tmaclaren.png"
             },
             OnePlus_7: {
                 brand: "OnePlus",
-                model: "One+ 7",
+                model: "OnePlus_7",
+                modelText: "One+ 7",
                 img: "/imgs/OnePlus/7.png"
             }
         }

@@ -6,10 +6,11 @@ export default class ModelList extends Component {
     render() {
         if (this.props.status) {
             return (
-                <ModelListStyle>
+                <ModelListStyle onClick={this.props.nextModel}>
                     {
                         Object
                             .keys(this.props.brand.modelList)
+                            .filter(model => model !== this.props.currentModel.model)
                             .map(model => 
                                 <Model 
                                     img={this.props.brand.modelList[model].img} 
