@@ -40,6 +40,7 @@ export default class ModelList extends Component {
 
             return (
                 <ModelListStyle 
+                    className="model__list"
                     onClick={() => { 
                         if (modelsAfterCurrent[0]) {
                             this.props.nextModel(modelsAfterCurrent[0]); 

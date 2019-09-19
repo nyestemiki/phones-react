@@ -4,9 +4,12 @@ import { Info, DisplayedModel } from './styles/BrandStyles';
 import Details from './Details';
 import ModelList from './ModelList';
 import Button from './styles/ButtonStyle';
+import Reanimate from '../helpers/Reanimate';
 
 class Brand extends React.Component {
     state = {
+
+        // Will contain the displayed model object | Default: ''
         displayedModel: ''
     }
 
@@ -25,6 +28,8 @@ class Brand extends React.Component {
         const gradient = `radial-gradient(circle, 
             rgb(${color[1][0]}, ${color[1][1]}, ${color[1][2]}) 10%,
             rgb(${color[0][0]}, ${color[0][1]}, ${color[0][2]})`;
+
+        // Applying the gradient from the dominant colors of the displayed models' image
         brand_div.style.background = gradient;
     }
 
@@ -33,6 +38,8 @@ class Brand extends React.Component {
         this.props.selectBrand(this.props.brand);
     }
 
+    // Selects next model from the models' list
+    //      Updates the displayed model to the given argument
     nextModel = model => {
         if (model !== "undefined") {
             this.setState({
@@ -44,12 +51,39 @@ class Brand extends React.Component {
                 displayedModel: this.props.brand.covermodel
             });
         }
+
+        // Reanimate animations when next model is selected
+        this.toggleAnimation();
+
+        // Adapting background to the newly selected model
+        setTimeout(() => {
+            this.setBackground();
+        }, 150);
+    }
+
+    // Replaying the animations of the brand container
+    toggleAnimation = () => {
+        // Replaying the animation of the info area of the container
+        const infoArea = document.querySelector('.info__area');
+        Reanimate(infoArea);
+
+        // Replaying the animation of the displayed model
+        const modelDisplayed = document.querySelector('.model__displayed');
+        Reanimate(modelDisplayed);
+
+        // Replaying the animation of the models' list
+        const modelList = document.querySelector('.model__list');
+        Reanimate(modelList);
     }
 
     // LIFECYCLE METHODS
 
+    // As soon as the component is mounted
     componentDidMount() {
+        // Covermodel
         const currentModel = this.props.brand.modelList[this.props.brand.covermodel];
+        
+        // Set default displayed model
         this.setState({
             displayedModel: currentModel
         });
@@ -76,11 +110,11 @@ class Brand extends React.Component {
     // Selected brand layout (full display)
     selectedRender = () => (
         <div className="brand selected-brand-layout" id={this.props.id}>
-            <Info>
+            <Info className="info__area">
                 <div className="model-name">{this.state.displayedModel.modelText}</div>
                 <Button onClick={this.props.toggleInfo}>Learn more</Button>
             </Info>
-            <DisplayedModel className="brand__image">
+            <DisplayedModel className="brand__image model__displayed">
                 <img 
                     src={this.state.displayedModel.img} 
                     alt={this.state.displayedModel.brand}

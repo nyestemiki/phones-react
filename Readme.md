@@ -1,5 +1,1 @@
-## To-do
-- next model
-    - scroll list
-    - change displayedModel
-<!-- - responsive design -->
+### This is a react implementation of a VanillaJS design app

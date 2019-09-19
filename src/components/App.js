@@ -19,6 +19,7 @@ class App extends React.Component {
         showDetails: false
     }
 
+    // Toggle Info-ModelList
     toggleInfo = () => {
         this.setState({
             showModels: !this.state.showModels,
@@ -28,6 +29,11 @@ class App extends React.Component {
 
     // Selects the chosen brand
     selectBrand = brand => {
+        // There is already a brand selected
+        if (this.state.selectedBrand !== '') {
+            return;
+        }
+
         const allBrands = document.querySelectorAll('.brand'); // Nodelist
         const allBrandsArray = Array.from(allBrands);
 
@@ -69,10 +75,15 @@ class App extends React.Component {
 
     // Redirects to the main menu
     mainMenu = () => {
+        // Already in main menu
+        if (this.state.selectedBrand === '') {
+            return;
+        }
+
         const allBrands = document.querySelectorAll('.brand'); // Nodelist
         const allBrandsArray = Array.from(allBrands);
     
-        // No brand selected
+        // No brand selected | Default settings
         this.setState({ 
             selectedBrand: '',
             showModels: true,
