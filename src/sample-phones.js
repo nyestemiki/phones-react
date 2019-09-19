@@ -71,7 +71,7 @@ const brands = {
     },
     Apple: {
         brandname: "Apple",
-        covermodel: "iPhone_X",
+        covermodel: "iPhone_Xr",
         modelList: {
             iPhone_X: {
                 brand: "Apple",
