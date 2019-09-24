@@ -114,7 +114,7 @@ class Brand extends React.Component {
         <div className="brand selected-brand-layout" id={this.props.id}>
             <Info className="info__area">
                 <div className="model-name">{this.state.displayedModel.modelText}</div>
-                <Button onClick={this.props.toggleInfo}>Learn more</Button>
+                <Button onClick={this.props.toggleInfo}>{this.props.showDetails ? 'More Models' : 'Learn More'}</Button>
             </Info>
             <DisplayedModel className="brand__image model__displayed">
                 <Model 

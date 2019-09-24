@@ -16,7 +16,7 @@ const DetailsContainer = styled.div`
     flex: 3;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr ${props => props.split ? '1fr' : ''};
     margin-right: 15px;
     margin-left: -15px;
     font-size: 1.2vw;
@@ -31,7 +31,7 @@ class Details extends Component {
     render() {
         if(this.props.status) {
             return (
-                <DetailsContainer>
+                <DetailsContainer split={this.props.for.specs}>
                     {   
                         (
                             this.props.for.specs && 
