@@ -1,21 +1,19 @@
 import styled from "styled-components";
 
 const Nav = styled.div`
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     color: rgba(255, 255, 255, 0.75);
     width: 100vw;
-    height: 5vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    
 
     @media (max-width: 600px) {
         & {
-            height: 10vh;
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
             justify-items: center;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, .1);
         }
     }
 `;
@@ -29,6 +27,12 @@ const Logo = styled.div`
     &:hover, &:focus {
         filter: drop-shadow(0 0 4px white);
         background: rgba(255, 255, 255, 0.5);
+    }
+
+    @media (max-width: 600px) {
+        & {
+            margin: 10px 0;
+        }
     }
 `;
 
@@ -70,6 +74,12 @@ const Tile = styled.div`
     a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.75);
+    }
+
+    @media (max-width: 600px) {
+        & {
+            text-align: center;
+        }
     }
 `;
 

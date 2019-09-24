@@ -17,8 +17,8 @@ const DetailsContainer = styled.div`
 
     display: grid;
     grid-template-columns: 1fr ${props => props.split ? '1fr' : ''};
-    margin-right: 15px;
-    margin-left: -15px;
+    margin-right: 3vw;
+    margin-left: -3vw;
     font-size: 1.2vw;
     animation: ${detailsContainerAnimation} .45s;
     position: relative;

@@ -12,8 +12,8 @@ const Info = styled.div`
     animation: ${infoAnimation} .6s;
 
     flex: 1;
-    margin: 50px;
-    padding: 25px;
+    margin: 3vw;
+    padding: 10vh 1vw;
 
     display: flex;
     flex-direction: column;
@@ -21,12 +21,15 @@ const Info = styled.div`
 
     .model-name {
         letter-spacing: 2px;
-        font-size: 30px;
+        font-size: 1.2rem;
         font-weight: 300;
-        text-align: justify;
         color: rgba(255, 255, 255, 0.8);
         margin-bottom: 35px;
     }
+
+    /* backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 10px; */
 `;
 
 const displayedModelAnimation = keyframes`
@@ -42,9 +45,8 @@ const DisplayedModel = styled.div`
     flex: 3;
     transition: 
     img {
-        max-height: 75vh;
+        height: 70vh;
     }
-    margin: 30px;
 `;
 
 const modelListAnimation = keyframes`
@@ -94,7 +96,10 @@ const ModelStyle = styled.div`
     justify-content: center;
     
     img {
-        max-height: ${props => props.small ? '50' : '75'}vh;
+        height: ${props => props.small ? '45' : '70'}vh;
+        @media screen and (max-width: 1000px) {
+            height: ${props => props.small ? '30' : '50'}vh;
+        }
     }
 `;
 

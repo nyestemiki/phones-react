@@ -3,10 +3,11 @@ import styled from 'styled-components';
 const Button = styled.div`
     background: none;
     border-radius: 10px;
-    font-size: 1.25vw;
+    font-size: .9rem;
     cursor: pointer;
     backdrop-filter: blur(50px);
     background-color: rgba(0, 0, 0, .25);
+    color: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
     letter-spacing: 1px;
     padding: 10px;
@@ -17,12 +18,16 @@ const Button = styled.div`
     justify-items: center;
     /* text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); */
     /* color: black; */
-    /* font-weight: 300; */
+    font-weight: 300;
 
     &:hover, &:focus {
         background: rgba(0, 0, 0, 0.5);
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-        color: white;
+        /* color: white; */
+    }
+
+    &:active {
+        background: rgba(0, 0, 0, 0.75);
     }
 `;
 
