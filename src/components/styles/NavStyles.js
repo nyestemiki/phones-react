@@ -6,37 +6,51 @@ const Nav = styled.div`
     color: rgba(255, 255, 255, 0.75);
     width: 100vw;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 5fr;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, .65);
 
-    @media (max-width: 600px) {
+    @media screen and (max-width: 600px) {
         & {
             grid-template-columns: 1fr;
             justify-items: center;
             backdrop-filter: blur(10px);
-            background-color: rgba(0, 0, 0, .5);
             transition: all .5s;
             height: ${props => props.scrollDirection === "up" ? "auto" : "0"};
             z-index: ${props => props.scrollDirection === "up" ? "100" : "-100"};
+        }
+    }
+
+    @media screen and (max-height: 600px) {
+        & {
+            font-size: .65rem;
         }
     }
 `;
 
 const Logo = styled.div`
     content: url("/imgs/logo.png");
-    height: 4vh;
+    max-height: 2rem;
     margin: 10px 30px;
     filter: contrast(500%) grayscale(100%) invert(75%);
+
+    @media screen and (max-height: 600px) {
+        & {
+            max-height: 1rem;
+            margin: 10px;
+        }
+    }
 
     &:hover, &:focus {
         filter: drop-shadow(0 0 4px white);
         background: rgba(255, 255, 255, 0.5);
     }
 
-    @media (max-width: 600px) {
+    /* @media (max-width: 600px) {
         & {
             margin: 10px 0;
         }
-    }
+    } */
 `;
 
 const Tiles = styled.div`
@@ -82,6 +96,13 @@ const Tile = styled.div`
     @media (max-width: 600px) {
         & {
             text-align: center;
+        }
+    }
+
+    @media (max-height: 600px) {
+        & {
+            padding: 10px;
+            margin: 0;
         }
     }
 `;

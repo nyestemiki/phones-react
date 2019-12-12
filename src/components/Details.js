@@ -14,7 +14,7 @@ const detailsContainerAnimation = keyframes`
 
 const DetailsContainer = styled.div`
     flex: 3;
-
+    padding: 2vh 2vw;
     display: grid;
     grid-template-columns: 1fr ${props => props.split ? '1fr' : ''};
     margin-right: 3vw;

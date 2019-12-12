@@ -7,7 +7,7 @@ const SpecStyle = styled.div`
     font-size: 1rem;
 
 
-    @media screen and (max-height: 500px) {
+    @media screen and (max-height: 600px) {
         font-size: .5rem;
     }
 `;
