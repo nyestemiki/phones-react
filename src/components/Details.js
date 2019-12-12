@@ -23,8 +23,14 @@ const DetailsContainer = styled.div`
     animation: ${detailsContainerAnimation} .45s;
     position: relative;
     backdrop-filter: blur(50px);
-    background-color: rgba(255, 255, 255, .125);
+    background-color: rgba(0, 0, 0, .25);
     border-radius: 10px;
+
+    @media screen and (max-width:600px) {
+        grid-template-columns: 1fr;
+        margin: 10px;
+        padding: 10px;
+    }
 `;
 
 class Details extends Component {

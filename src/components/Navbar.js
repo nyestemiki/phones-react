@@ -4,7 +4,7 @@ import Nav, { Logo, Tiles, Tile } from './styles/NavStyles';
 export default class Navbar extends Component {
     render() {
         return (
-            <Nav>
+            <Nav scrollDirection={this.props.scrollDirection}>
                 <Logo onClick={this.props.mainMenu}/>
                 <Tiles>
                     <Tile>

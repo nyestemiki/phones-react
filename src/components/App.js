@@ -16,7 +16,30 @@ class App extends React.Component {
     state = {
         selectedBrand: '',
         showModels: true,
-        showDetails: false
+        showDetails: false,
+        scroll: {
+            lastScrollTop: 0,
+            scrollDirection: "up" // up or down
+        }
+    }
+
+    componentDidMount() {
+        document.addEventListener("scroll", () => { 
+            let lastScrollTop = this.state.scroll.lastScrollTop;
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+
+            let currentState = { ...this.state };
+            currentState.scroll.scrollDirection = st > lastScrollTop ? "down" : "up";
+            currentState.scroll.lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+
+            this.setState(currentState);
+        }, false);
+    }
+
+    shutNavbar = () => {
+        let currentState = { ...this.state };
+        currentState.scroll.scrollDirection = "down";
+        this.setState(currentState);
     }
 
     // Toggle Info-ModelList
@@ -125,7 +148,10 @@ class App extends React.Component {
     render() {
         return (
             <>
-                <Navbar mainMenu={this.mainMenu}/>
+                <Navbar 
+                    mainMenu={this.mainMenu}
+                    scrollDirection={this.state.scroll.scrollDirection}    
+                />
                 <Brands> {   
                     Object.keys(samplePhones)
                         .map(key => 
@@ -138,6 +164,7 @@ class App extends React.Component {
                                 showModels={this.state.showModels}
                                 showDetails={this.state.showDetails}
                                 toggleInfo={this.toggleInfo}
+                                shutNavbar={this.shutNavbar}
                             />
                         ) 
                 } </Brands>

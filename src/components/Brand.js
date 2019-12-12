@@ -62,6 +62,12 @@ class Brand extends React.Component {
         }, 150);
     }
 
+    shutNav = () => {
+        if (window.screen.width <= 600 && this.props.isSelected) {
+            this.props.shutNavbar();
+        }
+    }
+
     // Replaying the animations of the brand container
     toggleAnimation = () => {
         // Replaying the animation of the info area of the container
@@ -111,7 +117,7 @@ class Brand extends React.Component {
 
     // Selected brand layout (full display)
     selectedRender = () => (
-        <div className="brand selected-brand-layout" id={this.props.id}>
+        <div className="brand selected-brand-layout" id={this.props.id} onLoad={this.shutNav}>
             <Info className="info__area">
                 <div className="model-name">{this.state.displayedModel.modelText}</div>
                 <Button onClick={this.props.toggleInfo}>{this.props.showDetails ? 'More Models' : 'Learn More'}</Button>

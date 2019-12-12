@@ -27,6 +27,22 @@ const Info = styled.div`
         margin-bottom: 35px;
     }
 
+    @media screen and (max-width: 600px) {
+        display: flex;
+        flex-direction: row;
+        place-items: center;
+        place-content: center;
+        width: 100vw;
+
+        .model-name {
+            margin: 0;
+        }
+
+        & > * {
+            margin: 0 20px;
+        }
+    }
+
     /* backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, .1);
     border-radius: 10px; */
@@ -46,6 +62,10 @@ const DisplayedModel = styled.div`
     transition: 
     img {
         height: 70vh;
+    }
+
+    @media screen and (max-width: 600px) {
+        margin-bottom: 8vh;
     }
 `;
 
@@ -87,6 +107,12 @@ const ModelListStyle = styled.div`
     & > * {
         padding: 15px;
     }
+
+    @media screen and (max-width: 600px) {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
 `;
 
 const ModelStyle = styled.div`
@@ -96,7 +122,7 @@ const ModelStyle = styled.div`
     justify-content: center;
     
     img {
-        height: ${props => props.small ? '45' : '70'}vh;
+        height: ${props => props.small ? '45' : '55'}vh;
         @media screen and (max-width: 1000px) {
             height: ${props => props.small ? '30' : '50'}vh;
         }

@@ -83,6 +83,11 @@ h1, h2, h3, h4, h5, h6 {
     .selected_brand img {
         filter: drop-shadow(0 0 15px white);
     }
+
+    .selected-brand-layout {
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 .Reanimate {

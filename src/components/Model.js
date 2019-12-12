@@ -4,11 +4,12 @@ import { ModelStyle } from './styles/BrandStyles';
 export default class Model extends Component {
     render() {
         return (
-            <ModelStyle small={this.props.small}>
+            <ModelStyle>
                 <img 
                     src={this.props.img} 
                     alt={this.props.id} 
                     onLoad={this.props.setsBackground && this.props.loaded}    
+                    className="modelImg"
                 />
             </ModelStyle>
         );
