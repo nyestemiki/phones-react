@@ -98,6 +98,15 @@ class App extends React.Component {
 
     // Redirects to the main menu
     mainMenu = () => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+        setTimeout(() => {
+            this.shutNavbar();
+        }, 1000);
+
         // Already in main menu
         if (this.state.selectedBrand === '') {
             return;

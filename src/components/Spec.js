@@ -3,9 +3,13 @@ import styled from 'styled-components';
 
 const SpecStyle = styled.div`
     padding: 10px;
-    padding-bottom: none;
     margin-bottom: 1vh;
     font-size: 1rem;
+
+
+    @media screen and (max-height: 500px) {
+        font-size: .5rem;
+    }
 `;
 
 const Type = styled.div`

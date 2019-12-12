@@ -13,7 +13,7 @@ const Nav = styled.div`
             grid-template-columns: 1fr;
             justify-items: center;
             backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, .2);
+            background-color: rgba(0, 0, 0, .5);
             transition: all .5s;
             height: ${props => props.scrollDirection === "up" ? "auto" : "0"};
             z-index: ${props => props.scrollDirection === "up" ? "100" : "-100"};
